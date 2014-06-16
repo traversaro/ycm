@@ -18,7 +18,7 @@ before_script:
   #- cd ninja
   #- ./bootstrap.py
   #- cd ../ycm
-  - ls 
+  #- ls 
   - pwd
   - cmake --version
   - mkdir build
