@@ -10,10 +10,10 @@ env:
 
 before_script:
   #Install ninja and the latest cmake to support ninja
-  - sudo add-apt-repository -y ppa:kalakris/cmake
-  - sudo apt-get update
-  - sudo apt-get install cmake
-  #- cd .. 
+  #- sudo add-apt-repository -y ppa:kalakris/cmake
+  #- sudo apt-get update
+  #- sudo apt-get install cmake
+  ##- cd .. 
   #- git clone git://github.com/martine/ninja.git
   #- cd ninja
   #- ./bootstrap.py
