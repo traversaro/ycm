@@ -9,12 +9,22 @@ env:
   - TRAVIS_BUILD_TYPE=Release
 
 before_script:
+  - sudo apt-get install ninja-build
   - cmake --version
   - mkdir build
   - cd build
   - cmake .. -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=$(pwd)/../install
+  - cd ..
+  - mkdir build_ninja
+  - cd build_ninja
+  - cmake .. -Gninja -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=$(pwd)/../install_ninja
+  - cd ../build
 
 script:
   - make
   - make test
   - make install
+  - cd ../build_ninja
+  - ninja
+  - ninja test
+  - ninja install
