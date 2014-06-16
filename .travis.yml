@@ -19,7 +19,7 @@ before_script:
   #- ./bootstrap.py
   #- cd ../ycm
   #- ls 
-  - pwd
+  #- pwd
   - cmake --version
   - mkdir build
   - cd build
