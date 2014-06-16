@@ -13,17 +13,8 @@ before_script:
   - mkdir build
   - cd build
   - cmake .. -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=$(pwd)/../install
-  - cd ..
-  - mkdir build_ninja
-  - cd build_ninja
-  - cmake .. -GNinja -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=$(pwd)/../install_ninja
-  - cd ../build
 
 script:
   - make
   - make test
   - make install
-  - cd ../build_ninja
-  - ../../ninja/ninja
-  - ../../ninja.ninja test
-  - ../../ninja.ninja install
