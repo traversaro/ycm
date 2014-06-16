@@ -7,8 +7,13 @@ compiler:
 env:
   - TRAVIS_BUILD_TYPE=Debug
   - TRAVIS_BUILD_TYPE=Release
+  - CMAKE_NEWER_VERSION=TRUE
+  - CMAKE_NEWER_VERSION=FALSE
 
 before_script:
+  - if [ $CMAKE_NEWER_VERSION ]; then sudo add-apt-repository -y ppa:kalakris/cmake; fi
+  - if [ $CMAKE_NEWER_VERSION ]; then sudo apt-get update; fi
+  - if [ $CMAKE_NEWER_VERSION ]; then sudo apt-get install cmake; fi
   - cmake --version
   - mkdir build
   - cd build
